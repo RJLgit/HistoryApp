@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">HistoryApp</string>
+    <!--Button Text on Main Activity-->
+    <string name="find_sites_button_text">See all sites</string>
+    <string name="map_sites_button_text">See sites on map</string>
+    <string name="find_sites_near_me_button_text">Find sites near me</string>
 </resources>
