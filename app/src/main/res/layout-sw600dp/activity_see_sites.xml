@@ -8,10 +8,12 @@
     <fragment
         android:id="@+id/sites_list_fragment"
         android:name="com.example.android.historyapp.ui.SitesListFragment"
-        android:layout_width="400dp"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintWidth_percent="0.5"
+        />
     <!-- A small divider -->
     <View
         android:id="@+id/view"
@@ -19,16 +21,17 @@
         android:layout_height="match_parent"
         android:background="@android:color/darker_gray"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/sites_list_fragment"
+        app:layout_constraintLeft_toRightOf="@id/sites_list_fragment"
         />
 
     <fragment
         android:id="@+id/details_fragment"
         android:name="com.example.android.historyapp.ui.SitesDetailsFragment"
-        android:layout_width="400dp"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         app:layout_constraintStart_toEndOf="@+id/view"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
