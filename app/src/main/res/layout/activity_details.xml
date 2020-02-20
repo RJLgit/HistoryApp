@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SeeSitesActivity">
-
+    tools:context=".ui.DetailsActivity">
     <fragment
-        android:id="@+id/sites_list_fragment"
-        android:name="com.example.android.historyapp.ui.SitesListFragment"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/details_fragment"
+        android:name="com.example.android.historyapp.ui.SitesDetailsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
