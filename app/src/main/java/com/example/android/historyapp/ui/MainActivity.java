@@ -1,10 +1,12 @@
-package com.example.android.historyapp;
+package com.example.android.historyapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.os.Bundle;
 import android.widget.Button;
+
+import com.example.android.historyapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,5 +21,7 @@ public class MainActivity extends AppCompatActivity {
         mFindSitesNearMeButton = findViewById(R.id.findSitesNearMeButton);
         mSeeAllSitesButton = findViewById(R.id.seeAllSitesButton);
         mSeeSitesOnMapButton = findViewById(R.id.findSitesNearMeButton);
+
+        
     }
 }

@@ -1,8 +1,10 @@
-package com.example.android.historyapp;
+package com.example.android.historyapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.android.historyapp.R;
 
 public class SeeSitesActivity extends AppCompatActivity {
 
