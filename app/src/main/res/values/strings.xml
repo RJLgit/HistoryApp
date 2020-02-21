@@ -4,4 +4,16 @@
     <string name="find_sites_button_text">See all sites</string>
     <string name="map_sites_button_text">See sites on map</string>
     <string name="find_sites_near_me_button_text">Find sites near me</string>
+    <!--Button Text on Details Activity-->
+    <string name="details_get_there_button">Get me there</string>
+    <!--Titles for Details Activity-->
+    <string name="opening_times_title">Opening times:</string>
+    <string name="operated_by_title">Operated by:</string>
+    <string name="status_details_title">Current status:</string>
+    <string name="address_title">Address</string>
+    <string name="history_title">Brief history of the site</string>
+    <string name="audio_title">Detailed history of the site</string>
+    <string name="details_rating_title">Site rating</string>
+
+
 </resources>

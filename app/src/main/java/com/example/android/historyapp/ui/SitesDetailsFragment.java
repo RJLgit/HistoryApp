@@ -21,8 +21,7 @@ public class SitesDetailsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_sites_details, container, false);
-        TextView textView = rootView.findViewById(R.id.details_text_view);
-        textView.setText("It worked. This is details text view");
+
         return rootView;
     }
 }
