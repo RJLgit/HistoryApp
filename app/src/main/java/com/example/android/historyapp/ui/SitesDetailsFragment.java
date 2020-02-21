@@ -1,5 +1,6 @@
 package com.example.android.historyapp.ui;
 
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,6 +30,7 @@ import androidx.fragment.app.Fragment;
 
 public class SitesDetailsFragment extends Fragment {
     //PlayerControlView mPlayerView;
+    MediaPlayer mediaPlayer;
 
     public SitesDetailsFragment() {
 
@@ -38,6 +40,8 @@ public class SitesDetailsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_sites_details, container, false);
+        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.canon_in_d);
+        mediaPlayer.start();
       /*  mPlayerView = rootView.findViewById(R.id.my_exoplayer);
 
         SimpleExoPlayer player = new SimpleExoPlayer.Builder(getActivity()).build();
@@ -49,9 +53,14 @@ public class SitesDetailsFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        mediaPlayer.release();
+        mediaPlayer = null;
+    }
 
-
-  /*  private MediaSource createMediaSource(Uri uri) {
+    /*  private MediaSource createMediaSource(Uri uri) {
         String userAgent = Util.getUserAgent(getActivity(), "HistoryApp");
         MediaSource mediaSource = new ExtractorMediaSource(uri, new DefaultDataSourceFactory(getActivity(), userAgent), new DefaultExtractorsFactory(), null, null);
         return mediaSource;

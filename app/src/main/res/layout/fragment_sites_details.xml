@@ -113,18 +113,70 @@
         app:layout_constraintVertical_bias="0.0" />
 <!--
     <com.google.android.exoplayer2.ui.PlayerControlView-->
-    <TextView
+    <!--<MediaController
         android:id="@+id/my_exoplayer"
         android:layout_width="match_parent"
         android:layout_height="62dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Exoplayer goes here"
-        android:textAlignment="center"
+
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/history_details_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/history_details_text_view" />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/linear_media"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/history_details_text_view">
+
+
+        <SeekBar
+            android:id="@+id/seekbar_audio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="Play" />
+
+            <Button
+                android:id="@+id/button_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Pause" />
+
+            <Button
+                android:id="@+id/button_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Reset" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 
     <TextView
         android:id="@+id/site_rating_title"
@@ -136,7 +188,7 @@
         android:textSize="14sp"
 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_exoplayer" />
+        app:layout_constraintTop_toBottomOf="@+id/linear_media" />
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -149,7 +201,7 @@
         android:stepSize="0.1"
 
         app:layout_constraintStart_toEndOf="@+id/site_rating_title"
-        app:layout_constraintTop_toBottomOf="@+id/my_exoplayer"
+        app:layout_constraintTop_toBottomOf="@+id/linear_media"
         app:layout_constraintVertical_bias="0.195" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
