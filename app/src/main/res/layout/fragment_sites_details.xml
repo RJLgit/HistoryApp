@@ -105,31 +105,49 @@
         android:text="@string/address_title"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/my_exoplayer"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/history_details_text_view"
+        app:show_buffering="when_playing" />
 
     <TextView
         android:id="@+id/site_rating_title"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
         android:text="@string/details_rating_title"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/address_details_text_view"
-        app:layout_constraintStart_toStartOf="parent" />
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_exoplayer" />
 
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="231dp"
         android:layout_height="42dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="12dp"
         android:layout_marginBottom="8dp"
         android:isIndicator="true"
         android:numStars="5"
         android:stepSize="0.1"
-        app:layout_constraintBottom_toTopOf="@+id/address_details_text_view"
-        app:layout_constraintStart_toEndOf="@+id/site_rating_title" />
+
+        app:layout_constraintStart_toEndOf="@+id/site_rating_title"
+        app:layout_constraintTop_toBottomOf="@+id/my_exoplayer"
+        app:layout_constraintVertical_bias="0.195" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
