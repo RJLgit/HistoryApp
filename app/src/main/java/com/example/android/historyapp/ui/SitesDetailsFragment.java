@@ -2,37 +2,17 @@ package com.example.android.historyapp.ui;
 
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.MediaController;
-import android.widget.TextView;
-
 import com.example.android.historyapp.R;
 import com.example.android.historyapp.data.MyMediaController;
-import com.google.android.exoplayer2.ExoPlayerFactory;
-import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
-import com.google.android.exoplayer2.source.ExtractorMediaSource;
-import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.source.ProgressiveMediaSource;
-import com.google.android.exoplayer2.ui.PlayerControlView;
-import com.google.android.exoplayer2.ui.PlayerView;
-import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
-import com.google.android.exoplayer2.util.Util;
-
-import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.ScheduledExecutorService;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
 public class SitesDetailsFragment extends Fragment implements MediaController.MediaPlayerControl, MediaPlayer.OnPreparedListener, MediaPlayer.OnErrorListener {
@@ -43,31 +23,51 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
 
     private Handler handler = new Handler();
 
-    @Override
-    public void onPrepared(MediaPlayer mediaPlayer) {
-        mediaController.setMediaPlayer(this);
-        mediaController.setAnchorView(getActivity().findViewById(R.id.my_media_controller));
 
-        handler.post(new Runnable() {
-            public void run() {
-                mediaController.setEnabled(true);
-                mediaController.show(0);
-
-            }
-        });
-    }
-
-
-
-    @Override
-    public boolean onError(MediaPlayer mediaPlayer, int i, int i1) {
-        return false;
-    }
-
+    //Empty constructor
     public SitesDetailsFragment() {
 
     }
 
+
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_sites_details, container, false);
+        //Create Media player
+        mediaPlayer = new MediaPlayer();
+        mediaPlayer.setOnPreparedListener(this);
+        //Create file from resources - will change to get this from storage in the end
+        AssetFileDescriptor afd = getContext().getResources().openRawResourceFd(R.raw.canon_in_d);
+        if (afd != null) {
+            try {
+                mediaPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+                afd.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+        //Create Media controller
+        mediaController = new MyMediaController(getActivity());
+       //Off the main thread prepare the media player
+        if (mediaPlayer != null) {
+            mediaPlayer.prepareAsync();
+            mediaPlayer.start();
+
+        }
+        return rootView;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mediaPlayer.release();
+        mediaPlayer = null;
+    }
+
+   /* Media Player Controller methods for the interface*/
     @Override
     public void start() {
         mediaPlayer.start();
@@ -123,57 +123,26 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
         return 0;
     }
 
-    @Nullable
+    //Called by prepare()
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_sites_details, container, false);
-        //mediaController = rootView.findViewById(R.id.my_media_controller);
-        mediaPlayer = new MediaPlayer();
-        mediaPlayer.setOnPreparedListener(this);
-        AssetFileDescriptor afd = getContext().getResources().openRawResourceFd(R.raw.canon_in_d);
-        if (afd != null) {
+    public void onPrepared(MediaPlayer mediaPlayer) {
+        mediaController.setMediaPlayer(this);
+        mediaController.setAnchorView(getActivity().findViewById(R.id.my_media_controller));
 
-            try {
-                mediaPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
-                afd.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+        handler.post(new Runnable() {
+            public void run() {
+                mediaController.setEnabled(true);
+                mediaController.show(0);
+
             }
-
-        }
-
-        mediaController = new MyMediaController(getActivity());
-        Log.d(TAG, "onCreateView: " + mediaPlayer);
-        //mediaPlayer = MediaPlayer.create(getActivity(), R.raw.canon_in_d);
-        if (mediaPlayer != null) {
-            mediaPlayer.prepareAsync();
-            mediaPlayer.start();
-
-        }
-
-      /*  mPlayerView = rootView.findViewById(R.id.my_exoplayer);
-
-        SimpleExoPlayer player = new SimpleExoPlayer.Builder(getActivity()).build();
-        mPlayerView.setPlayer(player);
-        //C:\Users\rICHAR\Ucfa\HistoryApp\app\src\main\res\raw\canon_in_d.mp3
-        Uri uri = Uri.parse("android.resource://" + getActivity().getPackageName() + R.raw.canon_in_d);
-        player.prepare(createMediaSource(uri));*/
-
-        return rootView;
+        });
     }
 
+
+    //Error listener method
     @Override
-    public void onStop() {
-        super.onStop();
-        mediaPlayer.release();
-        mediaPlayer = null;
+    public boolean onError(MediaPlayer mediaPlayer, int i, int i1) {
+        return false;
     }
 
-
-
-    /*  private MediaSource createMediaSource(Uri uri) {
-        String userAgent = Util.getUserAgent(getActivity(), "HistoryApp");
-        MediaSource mediaSource = new ExtractorMediaSource(uri, new DefaultDataSourceFactory(getActivity(), userAgent), new DefaultExtractorsFactory(), null, null);
-        return mediaSource;
-    }*/
 }
