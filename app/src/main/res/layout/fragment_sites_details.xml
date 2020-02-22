@@ -10,7 +10,6 @@
         android:id="@+id/site_name_text_view"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Site name"
         android:textAlignment="center"
         android:textSize="40sp"
         android:textStyle="bold"

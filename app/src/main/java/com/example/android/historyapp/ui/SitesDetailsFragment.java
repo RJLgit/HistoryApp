@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.MediaController;
+import android.widget.TextView;
+
 import com.example.android.historyapp.R;
 import com.example.android.historyapp.data.MyMediaController;
 import java.io.IOException;
@@ -21,6 +23,8 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
     MediaPlayer mediaPlayer;
     MyMediaController mediaController;
     private static final String TAG = "SitesDetailsFragment";
+    public static final String ARG_ITEM_ID = "Key for args";
+    TextView textView;
 
     private Handler handler = new Handler();
 
@@ -36,6 +40,13 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_sites_details, container, false);
+        textView = rootView.findViewById(R.id.site_name_text_view);
+        Bundle bundle = getArguments();
+        if (bundle != null && bundle.containsKey(ARG_ITEM_ID)) {
+            String title = bundle.getString(ARG_ITEM_ID);
+            textView.setText("");
+            textView.setText(title);
+        }
 
         return rootView;
     }
@@ -72,27 +83,33 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
     public void onDestroyView() {
         super.onDestroyView();
         Log.d(TAG, "onDestroyView: destorying");
-        mediaPlayer.pause();
-        mediaPlayer.release();
-        mediaPlayer = null;
+        if (mediaPlayer != null) {
+            mediaPlayer.pause();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy: ");
-        mediaPlayer.pause();
-        mediaPlayer.release();
-        mediaPlayer = null;
+        if (mediaPlayer != null) {
+            mediaPlayer.pause();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 
     @Override
     public void onStop() {
         super.onStop();
         Log.d(TAG, "onStop: stopping");
-        mediaPlayer.pause();
-        mediaPlayer.release();
-        mediaPlayer = null;
+        if (mediaPlayer != null) {
+            mediaPlayer.pause();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 
    /* Media Player Controller methods for the interface*/

@@ -1,5 +1,6 @@
 package com.example.android.historyapp.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class SitesListFragment extends Fragment {
+    public static ArrayList<String> dummyData = new ArrayList<>();
     public SitesListFragment() {
 
     }
@@ -27,7 +29,7 @@ public class SitesListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_sites_list, container, false);
 
-        ArrayList<String> dummyData = new ArrayList<>();
+        dummyData.clear();
         dummyData.add("Castle 1");
         dummyData.add("Castle 2");
         dummyData.add("Castle 3");
@@ -51,8 +53,10 @@ public class SitesListFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         // specify an adapter (see also next example)
-        SitesAdapter mAdapter = new SitesAdapter(getActivity(), dummyData);
+        SitesAdapter mAdapter = new SitesAdapter(getActivity(), dummyData, (SitesAdapter.OnRecyclerItemClickListener) getActivity());
         recyclerView.setAdapter(mAdapter);
         return rootView;
     }
+
+
 }

@@ -18,10 +18,12 @@ public class SitesAdapter extends RecyclerView.Adapter<SitesAdapter.SitesViewHol
 
     private Context mContext;
     private ArrayList<String> mData;
+    private OnRecyclerItemClickListener mListener;
 
-    public SitesAdapter(Context context, ArrayList<String> siteNames) {
+    public SitesAdapter(Context context, ArrayList<String> siteNames, OnRecyclerItemClickListener listener) {
         mContext = context;
         mData = siteNames;
+        mListener = listener;
     }
 
     @NonNull
@@ -29,7 +31,7 @@ public class SitesAdapter extends RecyclerView.Adapter<SitesAdapter.SitesViewHol
     public SitesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View view = inflater.inflate(R.layout.list_item_layout, parent, false);
-        return new SitesViewHolder(view);
+        return new SitesViewHolder(view, mListener);
     }
 
     @Override
@@ -42,16 +44,27 @@ public class SitesAdapter extends RecyclerView.Adapter<SitesAdapter.SitesViewHol
         return mData.size();
     }
 
-    public class SitesViewHolder extends RecyclerView.ViewHolder {
+    public class SitesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView mTextView;
-        public SitesViewHolder(@NonNull View itemView) {
+        OnRecyclerItemClickListener onRecyclerItemClickListener;
+        public SitesViewHolder(@NonNull View itemView, OnRecyclerItemClickListener myListen) {
             super(itemView);
             mTextView = itemView.findViewById(R.id.recycler_text_view);
+            onRecyclerItemClickListener = myListen;
+            itemView.setOnClickListener(this);
         }
 
         void bind(String castle) {
             mTextView.setText(castle);
         }
 
+        @Override
+        public void onClick(View view) {
+            onRecyclerItemClickListener.onMyItemClicked(getAdapterPosition());
+        }
+    }
+
+    public interface OnRecyclerItemClickListener{
+        void onMyItemClicked(int i);
     }
 }
