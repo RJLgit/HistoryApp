@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.DetailsActivity"></activity>
-        <activity android:name=".ui.SeeSitesActivity" />
+        <activity android:name=".ui.DetailsActivity"
+            android:parentActivityName=".ui.SeeSitesActivity"></activity>
+        <activity android:name=".ui.SeeSitesActivity"
+            android:parentActivityName=".ui.MainActivity"/>
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
