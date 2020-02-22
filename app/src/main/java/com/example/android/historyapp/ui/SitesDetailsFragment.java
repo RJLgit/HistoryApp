@@ -4,6 +4,7 @@ import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,13 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_sites_details, container, false);
+
+        return rootView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
         //Create Media player
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setOnPreparedListener(this);
@@ -51,18 +59,38 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
         }
         //Create Media controller
         mediaController = new MyMediaController(getActivity());
-       //Off the main thread prepare the media player
+        //Off the main thread prepare the media player
         if (mediaPlayer != null) {
+            Log.d(TAG, "onCreateView: preparing");
             mediaPlayer.prepareAsync();
             mediaPlayer.start();
 
         }
-        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.d(TAG, "onDestroyView: destorying");
+        mediaPlayer.pause();
+        mediaPlayer.release();
+        mediaPlayer = null;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: ");
+        mediaPlayer.pause();
+        mediaPlayer.release();
+        mediaPlayer = null;
     }
 
     @Override
     public void onStop() {
         super.onStop();
+        Log.d(TAG, "onStop: stopping");
+        mediaPlayer.pause();
         mediaPlayer.release();
         mediaPlayer = null;
     }
@@ -80,12 +108,20 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
 
     @Override
     public int getDuration() {
-        return mediaPlayer.getDuration();
+        if (mediaPlayer != null ) {
+            return mediaPlayer.getDuration();
+        } else {
+            return 0;
+        }
     }
 
     @Override
     public int getCurrentPosition() {
-        return mediaPlayer.getCurrentPosition();
+        if (mediaPlayer != null) {
+            return mediaPlayer.getCurrentPosition();
+        } else {
+            return 0;
+        }
     }
 
     @Override
@@ -95,7 +131,12 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
 
     @Override
     public boolean isPlaying() {
-        return mediaPlayer.isPlaying();
+        if (mediaPlayer != null) {
+            return mediaPlayer.isPlaying();
+        } else {
+            return false;
+        }
+
     }
 
     @Override
