@@ -32,6 +32,7 @@ public class SeeSitesActivity extends AppCompatActivity implements SitesAdapter.
     public void onMyItemClicked(int i) {
         if (!isTwoPane) {
             Intent intent = new Intent(this, DetailsActivity.class);
+            intent.putExtra(SitesDetailsFragment.ARG_ITEM_ID, SitesListFragment.dummyData.get(i));
             startActivity(intent);
 
         } else {
