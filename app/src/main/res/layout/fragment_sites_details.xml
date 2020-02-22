@@ -24,7 +24,6 @@
         android:layout_width="match_parent"
         android:layout_height="127dp"
         android:layout_marginStart="32dp"
-
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:elevation="1dp"
@@ -111,20 +110,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ratingBar"
         app:layout_constraintVertical_bias="0.0" />
-<!--
-    <com.google.android.exoplayer2.ui.PlayerControlView-->
-    <!--<MediaController
-        android:id="@+id/my_exoplayer"
-        android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
 
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/history_details_text_view" />-->
     <LinearLayout
         android:layout_width="match_parent"
         android:id="@+id/linear_media"
@@ -176,6 +162,13 @@
 
     </LinearLayout>
 
+    <MediaController
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/my_media_controller"
+        android:translationZ="50dp"
+        />
+
 
 
     <TextView
@@ -186,7 +179,6 @@
         android:layout_marginTop="8dp"
         android:text="@string/details_rating_title"
         android:textSize="14sp"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linear_media" />
 
@@ -199,7 +191,6 @@
         android:isIndicator="true"
         android:numStars="5"
         android:stepSize="0.1"
-
         app:layout_constraintStart_toEndOf="@+id/site_rating_title"
         app:layout_constraintTop_toBottomOf="@+id/linear_media"
         app:layout_constraintVertical_bias="0.195" />
