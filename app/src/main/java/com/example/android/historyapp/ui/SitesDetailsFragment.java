@@ -8,7 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.MediaController;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.android.historyapp.R;
@@ -25,6 +27,16 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
     private static final String TAG = "SitesDetailsFragment";
     public static final String ARG_ITEM_ID = "Key for args";
     TextView titleTextView;
+    TextView statusTextView;
+    TextView openTimesTextView;
+    TextView operatedByTextView;
+    ImageView castleImageView;
+    TextView historyTitleTextView;
+    TextView historyDetailsTextView;
+    TextView addressTextView;
+    TextView ratingTitleTextView;
+    RatingBar myRatingBarWidget;
+
 
     private Handler handler = new Handler();
 
@@ -41,11 +53,34 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_sites_details, container, false);
         titleTextView = rootView.findViewById(R.id.site_name_text_view);
+        statusTextView = rootView.findViewById(R.id.status_text_view);
+        openTimesTextView = rootView.findViewById(R.id.opening_times_text_view);;
+        operatedByTextView = rootView.findViewById(R.id.operated_by_text_view);;
+        castleImageView = rootView.findViewById(R.id.photos_image_view);
+
+        historyTitleTextView = rootView.findViewById(R.id.details_history_title_text_view);;
+        historyDetailsTextView = rootView.findViewById(R.id.history_details_text_view);;
+        addressTextView = rootView.findViewById(R.id.address_details_text_view);;
+        ratingTitleTextView = rootView.findViewById(R.id.site_rating_title);;
+        myRatingBarWidget = rootView.findViewById(R.id.ratingBar);
+
+
         Bundle bundle = getArguments();
         if (bundle != null && bundle.containsKey(ARG_ITEM_ID)) {
+            //Put code in here for when list item is clicked to show the details
             String title = bundle.getString(ARG_ITEM_ID);
             titleTextView.setText("");
             titleTextView.setText(title);
+            castleImageView.setImageDrawable(getResources().getDrawable(R.drawable.castle));
+            statusTextView.setText(getString(R.string.status_details_title));
+            openTimesTextView.setText(getString(R.string.opening_times_title));
+            operatedByTextView.setText(getString(R.string.operated_by_title));
+            historyTitleTextView.setText(getString(R.string.history_title));
+
+            historyDetailsTextView.setText("History Details go here");
+            ratingTitleTextView.setText(getString(R.string.details_rating_title));
+            addressTextView.setText(getString(R.string.address_title));
+            myRatingBarWidget.setVisibility(View.VISIBLE);
         }
 
         return rootView;
