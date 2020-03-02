@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/details_root_layout"
+    >
 
 
     <TextView
@@ -16,7 +18,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Site name" />
+        tools:text="Site name"
+        />
 
     <LinearLayout
         android:id="@+id/opening_times_layout"
@@ -29,30 +32,31 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/site_name_text_view">
+        app:layout_constraintTop_toBottomOf="@+id/site_name_text_view"
+        >
 
         <TextView
             android:id="@+id/status_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/status_details_title"
+            tools:text="@string/status_details_title"
             android:textAlignment="center" />
 
         <TextView
             android:id="@+id/opening_times_text_view"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="@string/opening_times_title"
+            tools:text="@string/opening_times_title"
             android:textAlignment="center"
-            android:visibility="invisible" />
+             />
 
         <TextView
             android:id="@+id/operated_by_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/operated_by_title"
+            tools:text="@string/operated_by_title"
             android:textAlignment="center"
-            android:visibility="invisible" />
+             />
 
     </LinearLayout>
 
@@ -64,22 +68,23 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="64dp"
         android:elevation="2dp"
-        android:src="@drawable/castle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/site_name_text_view"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        tools:srcCompat="@tools:sample/backgrounds/scenic"
+        />
 
     <TextView
         android:id="@+id/details_history_title_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/history_title"
+       tools:text="@string/history_title"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photos_image_view" />
+        app:layout_constraintTop_toBottomOf="@+id/photos_image_view"
+        />
 
     <TextView
         android:id="@+id/history_details_text_view"
@@ -88,10 +93,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
-        android:text="History goes here"
+        android:text="Click castle to see details here"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/details_history_title_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/details_history_title_text_view"
+        />
 
     <TextView
         android:id="@+id/address_details_text_view"
@@ -100,7 +106,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/address_title"
+        tools:text="@string/address_title"
         android:textAlignment="center"
         android:textSize="16sp"
 
@@ -118,6 +124,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/history_details_text_view"
+
         />
 
 
@@ -128,10 +135,11 @@
         android:layout_height="34dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
-        android:text="@string/details_rating_title"
+        tools:text="@string/details_rating_title"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_media_controller" />
+        app:layout_constraintTop_toBottomOf="@+id/my_media_controller"
+        />
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -144,6 +152,8 @@
         android:stepSize="0.1"
         app:layout_constraintStart_toEndOf="@+id/site_rating_title"
         app:layout_constraintTop_toBottomOf="@+id/my_media_controller"
-        app:layout_constraintVertical_bias="0.195" />
+        app:layout_constraintVertical_bias="0.195"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -24,7 +24,7 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
     MyMediaController mediaController;
     private static final String TAG = "SitesDetailsFragment";
     public static final String ARG_ITEM_ID = "Key for args";
-    TextView textView;
+    TextView titleTextView;
 
     private Handler handler = new Handler();
 
@@ -40,12 +40,12 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_sites_details, container, false);
-        textView = rootView.findViewById(R.id.site_name_text_view);
+        titleTextView = rootView.findViewById(R.id.site_name_text_view);
         Bundle bundle = getArguments();
         if (bundle != null && bundle.containsKey(ARG_ITEM_ID)) {
             String title = bundle.getString(ARG_ITEM_ID);
-            textView.setText("");
-            textView.setText(title);
+            titleTextView.setText("");
+            titleTextView.setText(title);
         }
 
         return rootView;
@@ -202,5 +202,6 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
     public boolean onError(MediaPlayer mediaPlayer, int i, int i1) {
         return false;
     }
+
 
 }

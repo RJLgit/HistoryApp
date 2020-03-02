@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.android.historyapp.R;
 
@@ -40,7 +41,9 @@ public class SeeSitesActivity extends AppCompatActivity implements SitesAdapter.
             arguments.putString(SitesDetailsFragment.ARG_ITEM_ID, SitesListFragment.dummyData.get(i));
             SitesDetailsFragment fragment = new SitesDetailsFragment();
             fragment.setArguments(arguments);
+
             getSupportFragmentManager().beginTransaction().replace(R.id.details_fragment, fragment).commit();
+
         }
     }
 }
