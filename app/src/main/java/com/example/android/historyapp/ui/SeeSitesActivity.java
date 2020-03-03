@@ -26,6 +26,10 @@ public class SeeSitesActivity extends AppCompatActivity implements SitesAdapter.
         } else {
             isTwoPane = false;
         }
+        if (isTwoPane) {
+            SeeMoreInfoFragment seeMoreInfoFragment = new SeeMoreInfoFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.details_fragment, seeMoreInfoFragment).commit();
+        }
 
     }
 

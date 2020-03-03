@@ -39,6 +39,7 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
     boolean showMediaPlayer = false;
 
 
+
     private Handler handler = new Handler();
 
 
@@ -52,6 +53,7 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateView: ");
         View rootView = inflater.inflate(R.layout.fragment_sites_details, container, false);
         titleTextView = rootView.findViewById(R.id.site_name_text_view);
         statusTextView = rootView.findViewById(R.id.status_text_view);
@@ -66,8 +68,10 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
         myRatingBarWidget = rootView.findViewById(R.id.ratingBar);
 
 
+
         Bundle bundle = getArguments();
         if (bundle != null && bundle.containsKey(ARG_ITEM_ID)) {
+            Log.d(TAG, "onCreateView: arguements");
             //Put code in here for when list item is clicked to show the details
             String title = bundle.getString(ARG_ITEM_ID);
             titleTextView.setText("");
@@ -91,6 +95,8 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
     @Override
     public void onStart() {
         super.onStart();
+
+        Log.d(TAG, "onStart: ");
         //Create Media player
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setOnPreparedListener(this);

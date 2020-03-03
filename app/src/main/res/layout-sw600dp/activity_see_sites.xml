@@ -24,14 +24,23 @@
         app:layout_constraintLeft_toRightOf="@id/sites_list_fragment"
         />
 
-    <fragment
+    <!--<fragment
         android:id="@+id/details_fragment"
-        android:name="com.example.android.historyapp.ui.SitesDetailsFragment"
+        android:name="com.example.android.historyapp.ui.SeeMoreInfoFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         app:layout_constraintStart_toEndOf="@+id/divider_view"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.5"
+        />-->
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toEndOf="@+id/divider_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5"
+        android:id="@+id/details_fragment"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
