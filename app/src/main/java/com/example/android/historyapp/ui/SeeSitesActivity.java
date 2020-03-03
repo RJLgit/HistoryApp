@@ -37,6 +37,7 @@ public class SeeSitesActivity extends AppCompatActivity implements SitesAdapter.
             startActivity(intent);
 
         } else {
+            //Pass data about item clicked from here
             Bundle arguments = new Bundle();
             arguments.putString(SitesDetailsFragment.ARG_ITEM_ID, SitesListFragment.dummyData.get(i));
             SitesDetailsFragment fragment = new SitesDetailsFragment();

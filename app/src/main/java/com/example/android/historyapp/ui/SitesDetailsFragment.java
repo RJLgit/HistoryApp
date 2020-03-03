@@ -36,6 +36,7 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
     TextView addressTextView;
     TextView ratingTitleTextView;
     RatingBar myRatingBarWidget;
+    boolean showMediaPlayer = false;
 
 
     private Handler handler = new Handler();
@@ -80,6 +81,7 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
             historyDetailsTextView.setText("History Details go here");
             ratingTitleTextView.setText(getString(R.string.details_rating_title));
             addressTextView.setText(getString(R.string.address_title));
+            showMediaPlayer = true;
             myRatingBarWidget.setVisibility(View.VISIBLE);
         }
 
@@ -220,7 +222,9 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
     @Override
     public void onPrepared(MediaPlayer mediaPlayer) {
         mediaController.setMediaPlayer(this);
-        mediaController.setAnchorView(getActivity().findViewById(R.id.my_media_controller));
+        if (showMediaPlayer) {
+            mediaController.setAnchorView(getActivity().findViewById(R.id.my_media_controller));
+        }
 
         handler.post(new Runnable() {
             public void run() {
