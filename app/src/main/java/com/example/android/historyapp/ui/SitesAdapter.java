@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.android.historyapp.R;
+import com.example.android.historyapp.data.Castles;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +18,12 @@ import androidx.recyclerview.widget.RecyclerView;
 public class SitesAdapter extends RecyclerView.Adapter<SitesAdapter.SitesViewHolder> {
 
     private Context mContext;
-    private ArrayList<String> mData;
+    private ArrayList<Castles> mData;
     private OnRecyclerItemClickListener mListener;
 
-    public SitesAdapter(Context context, ArrayList<String> siteNames, OnRecyclerItemClickListener listener) {
+    public SitesAdapter(Context context, ArrayList<Castles> castles, OnRecyclerItemClickListener listener) {
         mContext = context;
-        mData = siteNames;
+        mData = castles;
         mListener = listener;
     }
 
@@ -36,7 +37,7 @@ public class SitesAdapter extends RecyclerView.Adapter<SitesAdapter.SitesViewHol
 
     @Override
     public void onBindViewHolder(@NonNull SitesViewHolder holder, int position) {
-        holder.bind(mData.get(position));
+        holder.bind(mData.get(position).getName());
     }
 
     @Override

@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.android.historyapp.R;
+import com.example.android.historyapp.data.Castles;
+import com.example.android.historyapp.data.DummyData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class SitesListFragment extends Fragment {
     public static ArrayList<String> dummyData = new ArrayList<>();
+    public static ArrayList<Castles> dummyD;
     public SitesListFragment() {
 
     }
@@ -28,6 +31,8 @@ public class SitesListFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_sites_list, container, false);
+        dummyD = new ArrayList<>();
+        dummyD = DummyData.generateAndReturnData(getContext());
 
         dummyData.clear();
         dummyData.add("Castle 1");
@@ -53,7 +58,7 @@ public class SitesListFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         // specify an adapter (see also next example)
-        SitesAdapter mAdapter = new SitesAdapter(getActivity(), dummyData, (SitesAdapter.OnRecyclerItemClickListener) getActivity());
+        SitesAdapter mAdapter = new SitesAdapter(getActivity(), dummyD, (SitesAdapter.OnRecyclerItemClickListener) getActivity());
         recyclerView.setAdapter(mAdapter);
         return rootView;
     }
