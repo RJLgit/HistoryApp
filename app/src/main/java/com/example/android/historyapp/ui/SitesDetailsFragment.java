@@ -25,7 +25,17 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
     MediaPlayer mediaPlayer;
     MyMediaController mediaController;
     private static final String TAG = "SitesDetailsFragment";
-    public static final String ARG_ITEM_ID = "Key for args";
+
+    //Keys for extras
+    public static final String ARG_ITEM_ID = "Name of castle";
+    public static final String ARG_ITEM_HISTORY = "History of castle";
+    public static final String ARG_ITEM_RATING = "Rating of castle";
+    public static final String ARG_ITEM_OPERATOR = "Operator of castle";
+    public static final String ARG_ITEM_IMAGE = "Image of castle";
+    public static final String ARG_ITEM_AUDIO = "Audio of castle";
+
+
+
     TextView titleTextView;
     TextView statusTextView;
     TextView openTimesTextView;
