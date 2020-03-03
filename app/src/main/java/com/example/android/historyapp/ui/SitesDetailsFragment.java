@@ -89,15 +89,33 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
             castleImageView.setImageDrawable(getResources().getDrawable(R.drawable.castle));
             statusTextView.setText(getString(R.string.status_details_title));
             openTimesTextView.setText(getString(R.string.opening_times_title));
-            operatedByTextView.setText(getString(R.string.operated_by_title));
+            //operatedByTextView.setText(getString(R.string.operated_by_title));
             historyTitleTextView.setText(getString(R.string.history_title));
 
-            historyDetailsTextView.setText("History Details go here");
+            //historyDetailsTextView.setText("History Details go here");
             ratingTitleTextView.setText(getString(R.string.details_rating_title));
             addressTextView.setText(getString(R.string.address_title));
             showMediaPlayer = true;
             myRatingBarWidget.setVisibility(View.VISIBLE);
         }
+        if (bundle != null && bundle.containsKey(ARG_ITEM_HISTORY)) {
+            String history = bundle.getString(ARG_ITEM_HISTORY);
+            historyDetailsTextView.setText(history);
+        }
+        if (bundle != null && bundle.containsKey(ARG_ITEM_OPERATOR)) {
+            String operator = bundle.getString(ARG_ITEM_OPERATOR);
+            operatedByTextView.setText(getString(R.string.operated_by_title) + operator);
+        }
+        if (bundle != null && bundle.containsKey(ARG_ITEM_RATING)) {
+
+        }
+        if (bundle != null && bundle.containsKey(ARG_ITEM_AUDIO)) {
+
+        }
+        if (bundle != null && bundle.containsKey(ARG_ITEM_IMAGE)) {
+
+        }
+
 
         return rootView;
     }

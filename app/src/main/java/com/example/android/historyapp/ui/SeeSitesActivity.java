@@ -38,12 +38,16 @@ public class SeeSitesActivity extends AppCompatActivity implements SitesAdapter.
         if (!isTwoPane) {
             Intent intent = new Intent(this, DetailsActivity.class);
             intent.putExtra(SitesDetailsFragment.ARG_ITEM_ID, SitesListFragment.dummyD.get(i).getName());
+            intent.putExtra(SitesDetailsFragment.ARG_ITEM_HISTORY, SitesListFragment.dummyD.get(i).getHistory());
+            intent.putExtra(SitesDetailsFragment.ARG_ITEM_OPERATOR, SitesListFragment.dummyD.get(i).getOperator());
             startActivity(intent);
 
         } else {
             //Pass data about item clicked from here
             Bundle arguments = new Bundle();
             arguments.putString(SitesDetailsFragment.ARG_ITEM_ID, SitesListFragment.dummyD.get(i).getName());
+            arguments.putString(SitesDetailsFragment.ARG_ITEM_HISTORY, SitesListFragment.dummyD.get(i).getHistory());
+            arguments.putString(SitesDetailsFragment.ARG_ITEM_OPERATOR, SitesListFragment.dummyD.get(i).getOperator());
             SitesDetailsFragment fragment = new SitesDetailsFragment();
             fragment.setArguments(arguments);
 

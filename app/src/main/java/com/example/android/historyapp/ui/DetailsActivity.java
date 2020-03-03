@@ -13,15 +13,38 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-
+        Bundle arguments = new Bundle();
         Intent intent = getIntent();
-        if (intent != null && intent.hasExtra(SitesDetailsFragment.ARG_ITEM_ID)) {
+        if (intent != null) {
+            if (intent.hasExtra(SitesDetailsFragment.ARG_ITEM_ID)) {
             String title = intent.getStringExtra(SitesDetailsFragment.ARG_ITEM_ID);
-            Bundle arguments = new Bundle();
+
             arguments.putString(SitesDetailsFragment.ARG_ITEM_ID, title);
-            SitesDetailsFragment fragment = new SitesDetailsFragment();
-            fragment.setArguments(arguments);
-            getSupportFragmentManager().beginTransaction().replace(R.id.details_fragment, fragment).commit();
+
         }
+            if (intent.hasExtra(SitesDetailsFragment.ARG_ITEM_HISTORY)) {
+                String history = intent.getStringExtra(SitesDetailsFragment.ARG_ITEM_HISTORY);
+
+                arguments.putString(SitesDetailsFragment.ARG_ITEM_HISTORY, history);
+            }
+            if (intent.hasExtra(SitesDetailsFragment.ARG_ITEM_AUDIO)) {
+
+            }
+            if (intent.hasExtra(SitesDetailsFragment.ARG_ITEM_RATING)) {
+
+            }
+            if (intent.hasExtra(SitesDetailsFragment.ARG_ITEM_OPERATOR)) {
+                String operator = intent.getStringExtra(SitesDetailsFragment.ARG_ITEM_OPERATOR);
+
+                arguments.putString(SitesDetailsFragment.ARG_ITEM_OPERATOR, operator);
+            }
+            if (intent.hasExtra(SitesDetailsFragment.ARG_ITEM_IMAGE)) {
+
+            }
+        SitesDetailsFragment fragment = new SitesDetailsFragment();
+        fragment.setArguments(arguments);
+        getSupportFragmentManager().beginTransaction().replace(R.id.details_fragment, fragment).commit();
+        }
+
     }
 }
