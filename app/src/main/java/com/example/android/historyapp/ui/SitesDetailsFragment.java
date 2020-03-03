@@ -100,6 +100,7 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
         //Create Media player
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setOnPreparedListener(this);
+
         //Create file from resources - will change to get this from storage in the end
         AssetFileDescriptor afd = getContext().getResources().openRawResourceFd(R.raw.canon_in_d);
         if (afd != null) {

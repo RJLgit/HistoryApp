@@ -14,6 +14,17 @@
     <string name="history_title">Brief history of the site</string>
     <string name="audio_title">Detailed history of the site</string>
     <string name="details_rating_title">Site rating</string>
+    <!--History strings-->
+    <string name="warkworth_History">Wark was built in this year. \n This is the second line of the history. \n This is the third line of the history.</string>
+    <string name="dunstan_History">Dunstan was built in this year. \n This is the second line of the history. \n This is the third line of the history.</string>
+    <string name="rising_History">Rising was built in this year. \n This is the second line of the history. \n This is the third line of the history.</string>
+    <string name="berk_History">Berk was built in this year. \n This is the second line of the history. \n This is the third line of the history.</string>
+    <string name="warwick_History">Warwick was built in this year. \n This is the second line of the history. \n This is the third line of the history.</string>
+    <string name="banbury_History">Ban was built in this year. \n This is the second line of the history. \n This is the third line of the history.</string>
+    <string name="alnwick_History">alnwick was built in this year. \n This is the second line of the history. \n This is the third line of the history.</string>
+    <string name="dover_History">Dover was built in this year. \n This is the second line of the history. \n This is the third line of the history.</string>
+    <string name="raby_History">Raby was built in this year. \n This is the second line of the history. \n This is the third line of the history.</string>
+    <string name="caen_History">Caen was built in this year. \n This is the second line of the history. \n This is the third line of the history.</string>
 
 
 </resources>
