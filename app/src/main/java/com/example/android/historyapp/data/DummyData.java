@@ -20,16 +20,16 @@ public class DummyData {
         Castles raby;
         Castles caenarven;
 
-        warkworth = new Castles("Warkworth", "English Heritage", 4.2, context.getString(R.string.warkworth_History), R.drawable.castle, R.raw.canon_in_d);
-        dunstan = new Castles("Dunstan", "English Heritage", 3.2, context.getString(R.string.dunstan_History), R.drawable.castle, R.raw.canon_in_d);
-        rising = new Castles("Rising", "Private", 4.5, context.getString(R.string.rising_History), R.drawable.castle, R.raw.canon_in_d);
-        berkhamsted = new Castles("Berkhamsted", "English Heritage", 3.1, context.getString(R.string.berk_History), R.drawable.castle, R.raw.canon_in_d);
+        warkworth = new Castles("Warkworth", "English Heritage", 4, context.getString(R.string.warkworth_History), R.drawable.castle, R.raw.canon_in_d);
+        dunstan = new Castles("Dunstan", "English Heritage", 3, context.getString(R.string.dunstan_History), R.drawable.castle, R.raw.canon_in_d);
+        rising = new Castles("Rising", "Private", 45, context.getString(R.string.rising_History), R.drawable.castle, R.raw.canon_in_d);
+        berkhamsted = new Castles("Berkhamsted", "English Heritage", 2, context.getString(R.string.berk_History), R.drawable.castle, R.raw.canon_in_d);
         warwick = new Castles("Warwick", "Warwick Castle", 5, context.getString(R.string.warwick_History), R.drawable.castle, R.raw.canon_in_d);
-        banbury = new Castles("Banburgh", "English Heritage", 4.8, context.getString(R.string.banbury_History), R.drawable.castle, R.raw.canon_in_d);
-        alnwick = new Castles("Alnwick", "English Heritage", 4.7, context.getString(R.string.alnwick_History), R.drawable.castle, R.raw.canon_in_d);
-        dover = new Castles("Dover", "Dover castle", 3.4, context.getString(R.string.dover_History), R.drawable.castle, R.raw.canon_in_d);
-        raby = new Castles("Raby", "English Heritage", 2.4, context.getString(R.string.raby_History), R.drawable.castle, R.raw.canon_in_d);
-        caenarven = new Castles("Caenarven", "English Heritage", 4.5, context.getString(R.string.caen_History), R.drawable.castle, R.raw.canon_in_d);
+        banbury = new Castles("Banburgh", "English Heritage", 1, context.getString(R.string.banbury_History), R.drawable.castle, R.raw.canon_in_d);
+        alnwick = new Castles("Alnwick", "English Heritage", 3, context.getString(R.string.alnwick_History), R.drawable.castle, R.raw.canon_in_d);
+        dover = new Castles("Dover", "Dover castle", 4, context.getString(R.string.dover_History), R.drawable.castle, R.raw.canon_in_d);
+        raby = new Castles("Raby", "English Heritage", 2, context.getString(R.string.raby_History), R.drawable.castle, R.raw.canon_in_d);
+        caenarven = new Castles("Caenarven", "English Heritage", 5, context.getString(R.string.caen_History), R.drawable.castle, R.raw.canon_in_d);
 
         result.add(warkworth);
         result.add(dunstan);

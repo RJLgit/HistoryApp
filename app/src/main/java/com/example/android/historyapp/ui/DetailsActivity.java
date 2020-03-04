@@ -31,7 +31,8 @@ public class DetailsActivity extends AppCompatActivity {
 
             }
             if (intent.hasExtra(SitesDetailsFragment.ARG_ITEM_RATING)) {
-
+                int rating = intent.getIntExtra(SitesDetailsFragment.ARG_ITEM_RATING, 0);
+                arguments.putInt(SitesDetailsFragment.ARG_ITEM_RATING, rating);
             }
             if (intent.hasExtra(SitesDetailsFragment.ARG_ITEM_OPERATOR)) {
                 String operator = intent.getStringExtra(SitesDetailsFragment.ARG_ITEM_OPERATOR);

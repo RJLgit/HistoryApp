@@ -6,12 +6,12 @@ public class Castles {
     private String name;
     private String operator;
     //Need to add time and geolocation in future
-    private double rating;
+    private int rating;
     private String history;
     private int image;
     private int audio;
 
-    public Castles(String name, String operator, double rating, String history, int image, int audio) {
+    public Castles(String name, String operator, int rating, String history, int image, int audio) {
         this.name = name;
         this.operator = operator;
         this.rating = rating;
@@ -36,11 +36,11 @@ public class Castles {
         this.operator = operator;
     }
 
-    public double getRating() {
+    public int getRating() {
         return rating;
     }
 
-    public void setRating(double rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 

@@ -107,7 +107,8 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
             operatedByTextView.setText(getString(R.string.operated_by_title) + operator);
         }
         if (bundle != null && bundle.containsKey(ARG_ITEM_RATING)) {
-
+            int rating = bundle.getInt(ARG_ITEM_RATING);
+            myRatingBarWidget.setNumStars(rating);
         }
         if (bundle != null && bundle.containsKey(ARG_ITEM_AUDIO)) {
 
