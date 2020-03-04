@@ -108,7 +108,7 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
         }
         if (bundle != null && bundle.containsKey(ARG_ITEM_RATING)) {
             int rating = bundle.getInt(ARG_ITEM_RATING);
-            myRatingBarWidget.setNumStars(rating);
+            myRatingBarWidget.setRating(rating);
         }
         if (bundle != null && bundle.containsKey(ARG_ITEM_AUDIO)) {
 
