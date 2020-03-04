@@ -114,7 +114,8 @@ public class SitesDetailsFragment extends Fragment implements MediaController.Me
 
         }
         if (bundle != null && bundle.containsKey(ARG_ITEM_IMAGE)) {
-
+            int imag = bundle.getInt(ARG_ITEM_IMAGE);
+            castleImageView.setImageDrawable(getResources().getDrawable(imag));
         }
 
 

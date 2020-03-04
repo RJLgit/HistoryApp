@@ -40,7 +40,8 @@ public class DetailsActivity extends AppCompatActivity {
                 arguments.putString(SitesDetailsFragment.ARG_ITEM_OPERATOR, operator);
             }
             if (intent.hasExtra(SitesDetailsFragment.ARG_ITEM_IMAGE)) {
-
+                int imag = intent.getIntExtra(SitesDetailsFragment.ARG_ITEM_IMAGE, 0);
+                arguments.putInt(SitesDetailsFragment.ARG_ITEM_IMAGE, imag);
             }
         SitesDetailsFragment fragment = new SitesDetailsFragment();
         fragment.setArguments(arguments);

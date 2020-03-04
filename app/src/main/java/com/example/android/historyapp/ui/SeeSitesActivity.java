@@ -41,6 +41,7 @@ public class SeeSitesActivity extends AppCompatActivity implements SitesAdapter.
             intent.putExtra(SitesDetailsFragment.ARG_ITEM_HISTORY, SitesListFragment.dummyD.get(i).getHistory());
             intent.putExtra(SitesDetailsFragment.ARG_ITEM_OPERATOR, SitesListFragment.dummyD.get(i).getOperator());
             intent.putExtra(SitesDetailsFragment.ARG_ITEM_RATING, SitesListFragment.dummyD.get(i).getRating());
+            intent.putExtra(SitesDetailsFragment.ARG_ITEM_IMAGE, SitesListFragment.dummyD.get(i).getImage());
             startActivity(intent);
 
         } else {
@@ -50,6 +51,7 @@ public class SeeSitesActivity extends AppCompatActivity implements SitesAdapter.
             arguments.putString(SitesDetailsFragment.ARG_ITEM_HISTORY, SitesListFragment.dummyD.get(i).getHistory());
             arguments.putString(SitesDetailsFragment.ARG_ITEM_OPERATOR, SitesListFragment.dummyD.get(i).getOperator());
             arguments.putInt(SitesDetailsFragment.ARG_ITEM_RATING, SitesListFragment.dummyD.get(i).getRating());
+            arguments.putInt(SitesDetailsFragment.ARG_ITEM_IMAGE, SitesListFragment.dummyD.get(i).getImage());
             SitesDetailsFragment fragment = new SitesDetailsFragment();
             fragment.setArguments(arguments);
 
